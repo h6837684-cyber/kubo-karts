@@ -16,7 +16,6 @@ jobs:
         with:
           distribution: temurin
           java-version: 21
-      - uses: android-actions/setup-android@v3
       - run: npm install --no-audit --no-fund --legacy-peer-deps
       - run: node scripts/build-mobile.mjs
       - run: |
