@@ -1,0 +1,63 @@
+/* KUBO KARTS v3.6: winding map road, season chests, daily-task chest + reroll */
+/* ---- season chest track ---- */
+.chest-track { position: relative; margin: 10px 0 16px; padding: 12px 14px 12px; border-radius: 16px; background: linear-gradient(135deg,#1b1530,#12162a); border: 1px solid #3b2f63; }
+.ct-h { display: flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 900; color: var(--gold); margin-bottom: 26px; }
+.ct-h span { margin-inline-start: auto; color: var(--dim); }
+.ct-rail { position: relative; height: 12px; border-radius: 99px; background: var(--ink3); margin: 0 26px 44px; }
+.ct-rail > i { position: absolute; inset-block: 0; inset-inline-start: 0; border-radius: 99px; background: linear-gradient(90deg,#ffd23f,#ff9f1c); box-shadow: 0 0 12px rgba(255,210,63,.6); }
+.ct-chest { position: absolute; top: 50%; transform: translate(-50%,-50%); display: flex; flex-direction: column; align-items: center; gap: 2px; cursor: pointer; background: none; border: 0; color: var(--text); padding: 0; }
+.rtl .ct-chest { transform: translate(50%,-50%); }
+.ct-box { width: 46px; height: 46px; border-radius: 14px; display: grid; place-items: center; background: var(--ink2); border: 2px solid var(--ink3); color: var(--mute); }
+.ct-chest.big .ct-box { width: 56px; height: 56px; }
+.ct-chest small { position: absolute; top: 100%; margin-top: 4px; white-space: nowrap; font-size: 11px; font-weight: 900; color: var(--dim); display: flex; align-items: center; gap: 2px; }
+.ct-chest.ready .ct-box { background: linear-gradient(160deg,#ffd23f,#ff8a00); border-color: #fff3b0; color: #4a2600; animation: chestWiggle 1.1s ease-in-out infinite; box-shadow: 0 0 22px rgba(255,190,40,.8); }
+.ct-chest.ready small { color: var(--volt); }
+.ct-chest.open .ct-box { background: var(--mint); border-color: var(--mint); color: #00301d; }
+@keyframes chestWiggle { 0%,100% { transform: rotate(0) scale(1) } 20% { transform: rotate(-9deg) scale(1.08) } 40% { transform: rotate(9deg) scale(1.08) } 60% { transform: rotate(-5deg) } }
+.chest-pop { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+.chest-pop .cp-box { width: 96px; height: 96px; border-radius: 26px; display: grid; place-items: center; color: #4a2600; background: linear-gradient(160deg,#ffd23f,#ff8a00); box-shadow: 0 0 0 0 rgba(255,210,63,.7); animation: cpBurst 1s ease-out both, cpGlow 1.4s ease-in-out .8s infinite; }
+@keyframes cpBurst { 0% { transform: scale(.2) rotate(-30deg) } 60% { transform: scale(1.25) rotate(8deg) } 100% { transform: scale(1) } }
+@keyframes cpGlow { 50% { box-shadow: 0 0 0 16px rgba(255,210,63,0) , 0 0 40px rgba(255,210,63,.8) } }
+.chest-pop .cp-rw { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; animation: cpIn .5s .5s both; }
+@keyframes cpIn { from { opacity: 0; transform: translateY(12px) } }
+.s-tab .s-dot { position: absolute; top: 6px; inset-inline-end: 6px; width: 10px; height: 10px; border-radius: 50%; background: #ff3b5c; box-shadow: 0 0 8px #ff3b5c; animation: nextPulse 1.2s infinite; }
+.s-tab { position: relative; }
+
+/* ---- winding stage road ---- */
+.wind-scroll { overflow-x: auto; overflow-y: hidden; scrollbar-width: none; margin-bottom: 6px; }
+.wind-scroll::-webkit-scrollbar { display: none; }
+.wind { position: relative; }
+.wind svg { position: absolute; inset: 0; pointer-events: none; overflow: visible; }
+.wind .rd-base { fill: none; stroke: #1a2036; stroke-width: 22; stroke-linecap: round; }
+.wind .rd-edge { fill: none; stroke: #2c3556; stroke-width: 28; stroke-linecap: round; }
+.wind .rd-dash { fill: none; stroke: #55607f; stroke-width: 2.5; stroke-dasharray: 10 10; stroke-linecap: round; }
+.wind .rd-done { fill: none; stroke: var(--volt); stroke-width: 6; stroke-linecap: round; filter: drop-shadow(0 0 6px rgba(211,238,43,.7)); stroke-dasharray: 2000; stroke-dashoffset: 2000; animation: rdDraw 1.2s ease-out .15s forwards; }
+@keyframes rdDraw { to { stroke-dashoffset: 0 } }
+.wind .stage { position: absolute; width: 132px; min-height: 124px; z-index: 1; }
+.wind .stage.next { box-shadow: 0 0 0 2px var(--volt), 0 0 22px rgba(211,238,43,.35); }
+.sg-pin { position: absolute; top: -34px; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; animation: pinBob 1.2s ease-in-out infinite; pointer-events: none; }
+.sg-pin img { width: 58px; filter: drop-shadow(0 4px 4px rgba(0,0,0,.5)); }
+.sg-pin b { font-size: 9px; font-weight: 900; background: var(--volt); color: var(--on-volt); border-radius: 6px; padding: 0 6px; margin-top: -4px; }
+@keyframes pinBob { 50% { transform: translate(-50%,-5px) } }
+.wind .flag-end { position: absolute; width: 38px; height: 38px; margin: -19px 0 0 -19px; border-radius: 12px; display: grid; place-items: center; background: repeating-conic-gradient(#fff 0 25%, #111 0 50%) 0 0/12px 12px; border: 2px solid var(--gold); z-index: 1; }
+
+/* ---- daily set card + reroll ---- */
+.ch-set { display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 18px; margin-bottom: 10px; background: linear-gradient(120deg,#2a1d52,#162044); border: 1px solid #4a3a86; }
+.ch-set .cs-tx { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 4px; }
+.ch-set .cs-tx b { font-size: 15px; font-weight: 900; }
+.ch-set .cs-tx small { font-size: 11px; color: var(--dim); font-weight: 700; }
+.cs-dots { display: flex; gap: 6px; }
+.cs-dots i { width: 26px; height: 8px; border-radius: 99px; background: var(--ink3); }
+.cs-dots i.on { background: var(--volt); box-shadow: 0 0 8px rgba(211,238,43,.6); }
+.cs-rw { display: flex; gap: 8px; align-items: center; }
+.cs-chest { width: 64px; height: 64px; border-radius: 18px; display: grid; place-items: center; background: var(--ink2); border: 2px solid var(--ink3); color: var(--mute); flex: none; cursor: pointer; }
+.cs-chest.ready { background: linear-gradient(160deg,#ffd23f,#ff8a00); border-color: #fff3b0; color: #4a2600; animation: chestWiggle 1.1s ease-in-out infinite; box-shadow: 0 0 22px rgba(255,190,40,.8); }
+.cs-chest.open { background: var(--mint); border-color: var(--mint); color: #00301d; }
+.ch-tier { display: inline-block; font-size: 9px; font-weight: 900; padding: 1px 7px; border-radius: 6px; margin-inline-end: 6px; vertical-align: 2px; }
+.ch-tier.easy { background: #1f6f4a; color: #bff5d9; }
+.ch-tier.medium { background: #7a5a10; color: #ffe7a3; }
+.ch-tier.hard { background: #8a1f3a; color: #ffc2d0; }
+.chc-act { gap: 6px; align-items: center; }
+.chc-swap { display: flex; flex-direction: column; align-items: center; gap: 1px; font-size: 9px; font-weight: 900; color: var(--ice); background: var(--ink2); border: 1px solid var(--ink3); border-radius: 10px; padding: 5px 7px; cursor: pointer; }
+.chc-swap:active { transform: translateY(1px); }
+.chc-rw .xp-tag { font-size: 10px; }

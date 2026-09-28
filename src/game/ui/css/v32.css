@@ -1,0 +1,23 @@
+/* v3.2 incoming warning: one big arrow, no text */
+#missile-warn { position: fixed; left: 50%; top: 46%; width: 0; height: 0; z-index: 40; pointer-events: none; opacity: 0; transition: opacity .2s; transform: none; display: block; }
+#missile-warn .mw-rot { position: absolute; left: 0; top: 0; width: 0; height: 0; }
+#missile-warn .mw-arrow { position: absolute; left: 0; top: -70px; transform-origin: 50% 100%; will-change: transform, filter; }
+#missile-warn .mw-ct { display: none; }
+#missile-warn[data-kind="cart"] .mw-rk { display: none; }
+#missile-warn[data-kind="cart"] .mw-ct { display: block; }
+#missile-warn .mw-text, #missile-warn .mw-banner { display: none !important; }
+/* v3.2 nitro overlay */
+#nitro-ov { position: fixed; inset: 0; pointer-events: none; z-index: 30; opacity: 0; transition: opacity .5s; }
+#nitro-ov.on { opacity: 1; transition: opacity .08s; }
+#nitro-ov .nv-glow { position: absolute; inset: 0; box-shadow: inset 0 0 90px 30px rgba(60,170,255,.55), inset 0 0 220px 60px rgba(120,80,255,.25); animation: nvPulse .18s ease-in-out infinite alternate; }
+#nitro-ov .nv-lines { position: absolute; inset: -20%; background: repeating-conic-gradient(from 0deg at 50% 55%, rgba(200,240,255,.0) 0deg 5deg, rgba(200,240,255,.28) 5.4deg, rgba(200,240,255,0) 6deg 11deg); -webkit-mask: radial-gradient(circle at 50% 55%, transparent 28%, #000 60%); mask: radial-gradient(circle at 50% 55%, transparent 28%, #000 60%); animation: nvSpin .25s linear infinite; }
+#nitro-ov .nv-lines.b { animation-duration: .4s; animation-direction: reverse; opacity: .6; }
+@keyframes nvPulse { to { opacity: .7; } }
+@keyframes nvSpin { to { transform: scale(1.08) rotate(3deg); } }
+.tier-badge.tier-S, .tier-tag.tier-S { background: linear-gradient(135deg,#ff3d71,#ffb300) !important; color: #fff !important; box-shadow: 0 0 14px rgba(255,61,113,.7); }
+/* v3.4 VIP */
+.vip-pack{background:linear-gradient(160deg,#3a2400,#8a5a00 55%,#ffcf3d)!important;border:2px solid #ffd54f!important}
+.vip-pack .vip-ic{color:#ffe082;filter:drop-shadow(0 0 10px #ffb300)}
+.ribbon.vip-rib,.cc-vip{background:linear-gradient(90deg,#ffb300,#ffe082);color:#3a2400;font-weight:900;border-radius:8px;padding:2px 7px}
+.map-card.locked img{filter:grayscale(.7) brightness(.6)}
+.map-card .mc-lock{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#ffd54f}

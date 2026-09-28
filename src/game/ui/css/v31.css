@@ -1,0 +1,64 @@
+/* KUBO KARTS v3.1 — speed breaker / slipstream HUD, item-mode picker,
+   store psychology badges. Loaded after v3.css. */
+
+/* ---------- HUD: speed breaker + slipstream ---------- */
+.od-badges {
+  position: absolute; left: 50%; top: calc(env(safe-area-inset-top, 0px) + 74px);
+  transform: translateX(-50%); display: flex; gap: 8px; pointer-events: none; z-index: 6;
+}
+.od-b {
+  display: flex; align-items: center; gap: 6px; padding: 5px 11px 5px 9px; border-radius: 999px;
+  background: rgba(10, 12, 26, 0.72); border: 2px solid rgba(255,255,255,0.12);
+  color: #fff; font: 800 12px/1 var(--f-disp-fa); letter-spacing: .02em;
+  opacity: 0; transform: translateY(-6px) scale(.9); transition: opacity .2s, transform .25s var(--ease-out);
+}
+.od-b.on { opacity: 1; transform: none; }
+.od-b .od-ic { display: grid; place-items: center; }
+.od-sb { border-color: #ffd43b; color: #ffe066; }
+.od-sb .od-bar { width: 46px; height: 6px; border-radius: 3px; background: rgba(255,255,255,.14); overflow: hidden; display: block; }
+.od-sb .od-bar b { display: block; height: 100%; width: 0; background: linear-gradient(90deg, #ffb300, #fff176); border-radius: 3px; }
+.od-sb.full { animation: odPulse .5s ease-in-out infinite alternate; box-shadow: 0 0 18px rgba(255, 212, 59, .7); }
+.od-df { border-color: #58cef8; color: #9fe6ff; }
+@keyframes odPulse { from { transform: scale(1); } to { transform: scale(1.08); } }
+
+/* ---------- settings: item mode picker ---------- */
+.im-mode { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 6px 0 4px; }
+.im-mode button {
+  display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 12px 8px 10px;
+  border-radius: 16px; border: 3px solid var(--edge); background: var(--ink2); color: var(--text);
+  font: 800 14px/1.2 var(--f-disp-fa); cursor: pointer; transition: transform .15s, border-color .15s, background .15s;
+}
+.im-mode button small { font: 500 11px/1.35 'Vazirmatn', system-ui; color: var(--dim); text-align: center; }
+.im-mode button img { width: 54px; height: 54px; object-fit: contain; filter: drop-shadow(0 3px 0 rgba(0,0,0,.35)); }
+.im-mode button.active { border-color: #ffd43b; background: linear-gradient(180deg, #3a3320, #221f16); transform: translateY(-2px); }
+.im-mode button:active { transform: scale(.97); }
+.mps-mode { margin-bottom: 8px; }
+
+/* ---------- store: psychology badges ---------- */
+.sp-ribbon {
+  position: absolute; top: 8px; inset-inline-start: -4px; z-index: 2; padding: 3px 10px 3px 8px;
+  border-radius: 0 999px 999px 0; font: 900 11px/1.2 var(--f-disp-fa); color: #1d2300; background: var(--volt);
+  box-shadow: 0 2px 0 rgba(0,0,0,.35);
+}
+[dir="rtl"] .sp-ribbon { border-radius: 999px 0 0 999px; }
+.sp-ribbon.hot { background: var(--flare); color: #fff; }
+.sp-ribbon.gold { background: linear-gradient(90deg, #ffb831, #ffe066); color: #3a2400; }
+.sp-bonus { display: inline-block; margin-top: 2px; padding: 1px 7px; border-radius: 999px; background: rgba(76,227,160,.16); color: var(--mint); font: 800 11px/1.5 var(--f-disp-fa); }
+.sp-old { color: var(--mute); text-decoration: line-through; font-size: .78em; margin-inline-end: 6px; }
+.sp-save { color: var(--mint); font: 800 11px var(--f-disp-fa); }
+.shop-card.featured { border-color: #ffd43b !important; box-shadow: 0 0 0 2px rgba(255,212,59,.35), 0 8px 24px rgba(255,190,40,.18); transform: scale(1.02); }
+.im-mode .im-trio { display: flex; align-items: center; justify-content: center; height: 54px; }
+.im-mode .im-trio img { width: 40px; height: 40px; margin-inline: -5px; }
+.im-mode .im-trio img:nth-child(2) { width: 50px; height: 50px; position: relative; z-index: 1; }
+.im-mode button span { display: block; }
+.set-body .im-mode { padding: 0 2px 6px; }
+/* v3.1 part 2: store psychology on real cards */
+.sp-anchor { display: flex; flex-direction: column; align-items: center; gap: 1px; margin-bottom: 3px; line-height: 1.2; }
+.sp-anchor .sp-old { margin: 0; font: 700 12px var(--f-disp-fa); }
+.pack.featured { border-color: #ffd43b !important; box-shadow: 0 0 0 2px rgba(255,212,59,.35), 0 8px 24px rgba(255,190,40,.2); transform: translateY(-3px); }
+.pack.featured::after { content: ''; position: absolute; inset: 0; border-radius: inherit; pointer-events: none;
+  background: linear-gradient(115deg, transparent 30%, rgba(255,255,255,.18) 45%, transparent 60%); background-size: 250% 100%; animation: spShine 2.8s ease-in-out infinite; }
+.pack.popular { border-color: rgba(255,106,90,.8) !important; }
+.pack .sp-bonus { margin: 2px auto 4px; }
+@keyframes spShine { 0% { background-position: 120% 0; } 60%, 100% { background-position: -120% 0; } }
+.feat.rookie .ft-buy .toman b { font-size: 1.15em; }

@@ -1,0 +1,33 @@
+// KUBO KARTS v3.5 strings (menu, map locks, race events, daily tasks)
+import { extendLang } from '../core/lang';
+extendLang({
+  hotTag: 'HOT', allCleared: 'All stages cleared!', allClearedSub: 'Go back for missing stars', continueCareer: 'NEXT STAGE',
+  starsToChest: '{0} stars to the next chest', chestReady: 'Chest ready on the map!',
+  vipOnlyMap: 'VIP map', notEnoughGems: 'Not enough gems', needGemsN: 'You need {0} more gems', getGems: 'Get gems',
+  unlockMapQ: 'Unlock this map?', unlockMapBody: 'Yours forever: quick race + host it online.', premiumMap: 'PREMIUM', unlock: 'Unlock',
+  firstBuy: 'first buy', daysShort: 'days', vp_cars: 'Every car', vp_maps: 'Every map', vp_coins: '2x coins', vp_gems: '30 gems / day',
+  premiumMaps: 'PREMIUM MAPS', premiumMapsSub: 'yours forever',
+  ev_pass: 'OVERTAKE! +{0}', ev_final: 'LAST LAP! overtakes x2', ev_gift: 'LUCKY BOX!', ev_new: 'NEW MISSION!', ev_done: 'MISSION DONE! FREE NITRO', ev_fail: 'Mission missed',
+  ev_m_overtake: 'Pass a car', ev_m_hold: 'Stay 1st', ev_m_drift: 'Drift {0}s', ev_m_item: 'Use a power-up', ev_m_jump: 'Take a jump', ev_m_nohit: "Don't get hit",
+  goalDone: 'GOAL DONE!', goalFail: 'Goal missed',
+  gl_finish1: 'Goal: finish 1st · now {0}', gl_finish3: 'Goal: podium · now {0}', gl_time: 'Goal: beat the clock · {0}s left',
+  gl_drift: 'Goal: drift {0}/{1}s', gl_items: 'Goal: power-ups {0}/{1}', gl_survive: "Goal: don't break down", gl_clean: 'Goal: win with no crash · now {0}',
+  resOvertakes: 'Overtakes', resMissions: 'Missions',
+  ch_podium1: 'Finish on the podium', ch_overtake5: 'Overtake 5 cars', ch_overtake15: 'Overtake 15 cars', ch_overtake30: 'Overtake 30 cars',
+  ch_event2: 'Complete 2 race missions', ch_event5: 'Complete 5 race missions', ch_goal3: 'Complete 3 stage goals', ch_drift60: 'Drift for 60 seconds',
+}, {
+  hotTag: 'داغ', allCleared: 'همهٔ مراحل تموم شد!', allClearedSub: 'برگرد ستاره‌های جا مونده رو بگیر', continueCareer: 'مرحلهٔ بعدی',
+  starsToChest: '{0} ستاره تا صندوق بعدی', chestReady: 'صندوق روی نقشه آماده‌ست!',
+  vipOnlyMap: 'مپ مخصوص VIP', notEnoughGems: 'جم کافی نیست', needGemsN: '{0} جم دیگه لازم داری', getGems: 'گرفتن جم',
+  unlockMapQ: 'این مپ رو باز کنی؟', unlockMapBody: 'برای همیشه مال خودت: مسابقهٔ سریع + میزبانی چندنفره.', premiumMap: 'ویژه', unlock: 'باز کن',
+  firstBuy: 'خرید اول', daysShort: 'روز', vp_cars: 'همهٔ ماشین‌ها', vp_maps: 'همهٔ مپ‌ها', vp_coins: 'سکهٔ دوبرابر', vp_gems: 'روزی ۳۰ جم',
+  premiumMaps: 'مپ‌های ویژه', premiumMapsSub: 'برای همیشه',
+  ev_pass: 'سبقت! +{0}', ev_final: 'دور آخر! سبقت‌ها دوبرابر', ev_gift: 'جعبهٔ شانس!', ev_new: 'ماموریت جدید!', ev_done: 'ماموریت انجام شد! نیترو رایگان', ev_fail: 'ماموریت از دست رفت',
+  ev_m_overtake: 'از یه ماشین سبقت بگیر', ev_m_hold: 'اول بمون', ev_m_drift: '{0} ثانیه دریفت کن', ev_m_item: 'یه قدرت بزن', ev_m_jump: 'یه پرش بزن', ev_m_nohit: 'ضربه نخور',
+  goalDone: 'هدف انجام شد!', goalFail: 'هدف از دست رفت',
+  gl_finish1: 'هدف: نفر اول · الان {0}', gl_finish3: 'هدف: سکو · الان {0}', gl_time: 'هدف: زیر زمان · {0} ثانیه مونده',
+  gl_drift: 'هدف: دریفت {0}/{1} ثانیه', gl_items: 'هدف: قدرت {0}/{1}', gl_survive: 'هدف: ماشینت خراب نشه', gl_clean: 'هدف: بدون تصادف اول شو · الان {0}',
+  resOvertakes: 'سبقت', resMissions: 'ماموریت',
+  ch_podium1: 'روی سکو تموم کن', ch_overtake5: 'از ۵ ماشین سبقت بگیر', ch_overtake15: 'از ۱۵ ماشین سبقت بگیر', ch_overtake30: 'از ۳۰ ماشین سبقت بگیر',
+  ch_event2: '۲ ماموریت وسط مسابقه', ch_event5: '۵ ماموریت وسط مسابقه', ch_goal3: '۳ هدف مرحله رو انجام بده', ch_drift60: '۶۰ ثانیه دریفت',
+});
